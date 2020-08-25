@@ -49,7 +49,7 @@ public:
 		}
 	}
 
-	bool hasDBEventListener(const std::string& type) const { return true; };
+	bool hasDBEventListener(const std::string& type) const override{ return true; };
 };
 
 DRAGONBONES_NAMESPACE_END
