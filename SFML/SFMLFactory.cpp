@@ -5,6 +5,7 @@
 
 #include "SFMLFactory.h"
 
+#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <memory>
@@ -57,36 +58,39 @@ DragonBonesData* SFMLFactory::loadDragonBonesData(const std::string& filePath, c
 			return existedData;
 	}
 
-	std::stringstream data;
-
-	std::ifstream json(filePath);
-
-	if (json.bad())
+	sf::FileInputStream stream;
+	if (!stream.open(filePath))
+	{
+		std::cout << "Error to open skeleton file." << std::endl;
+		return nullptr;
+	}
+	const sf::Int64 size = stream.getSize();
+	char *chars = new char[size];
+	const sf::Int64 readed = stream.read(chars, size);
+	const std::string data = std::string(chars).substr(0, readed);
+	delete[] chars;
+	if (data.empty())
 		return nullptr;
 
-	data << json.rdbuf();
-
-	if (data.str().empty())
-		return nullptr;
-
-	return parseDragonBonesData(data.str().c_str(), name, 1.0f);
+	return parseDragonBonesData(data.c_str(), name, scale);
 }
 
 TextureAtlasData* SFMLFactory::loadTextureAtlasData(const std::string& filePath, sf::Texture* atlasTexture, const std::string& name, float scale)
 {
-	std::stringstream data;
-
-	std::ifstream json(filePath);
-
-	if (json.bad())
+	sf::FileInputStream stream;
+	if (!stream.open(filePath))
+	{
+		std::cout << "Error to open atlas file." << std::endl;
 		return nullptr;
-
-	data << json.rdbuf();
-
-	if (data.str().empty())
+	}
+	const sf::Int64 size = stream.getSize();
+	char *chars = new char[size];
+	const sf::Int64 readed = stream.read(chars, size);
+	const std::string data = std::string(chars).substr(0, readed);
+	delete[] chars;
+	if (data.empty())
 		return nullptr;
-
-	return static_cast<SFMLTextureAtlasData*>(BaseFactory::parseTextureAtlasData(data.str().c_str(), atlasTexture, name, scale));
+	return static_cast<SFMLTextureAtlasData*>(BaseFactory::parseTextureAtlasData(data.c_str(), atlasTexture, name, scale));
 }
 
 SFMLArmatureProxy* SFMLFactory::buildArmatureDisplay(const std::string& armatureName, const std::string& dragonBonesName, const std::string& skinName, const std::string& textureAtlasName) const
