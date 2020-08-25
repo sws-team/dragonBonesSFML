@@ -48,7 +48,7 @@ SFMLFactory::~SFMLFactory()
 	}
 }
 
-DragonBonesData* SFMLFactory::loadDragonBonesData(const std::string& filePath, const std::string& name)
+DragonBonesData* SFMLFactory::loadDragonBonesData(const std::string& filePath, const std::string& name, const float scale)
 {
 	if (!name.empty())
 	{
