@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 #include <SFML/Graphics/Rect.hpp>
 
 #include "SFMLNode.h"

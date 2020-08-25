@@ -9,7 +9,7 @@
 #include <functional>
 #include <vector>
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 
 DRAGONBONES_NAMESPACE_BEGIN
 

@@ -7,7 +7,7 @@
 
 #include <memory>
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 
 DRAGONBONES_NAMESPACE_BEGIN
 

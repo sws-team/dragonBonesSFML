@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Color.hpp>

@@ -12,7 +12,7 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 
 #include "SFMLNode.h"
 

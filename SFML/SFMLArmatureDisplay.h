@@ -8,7 +8,7 @@
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 
 DRAGONBONES_NAMESPACE_BEGIN
 

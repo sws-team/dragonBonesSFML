@@ -7,7 +7,7 @@
 
 #include <memory>
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 
 #include <SFML/Graphics/Sprite.hpp>
 

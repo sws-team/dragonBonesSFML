@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include <dragonBones/DragonBonesHeaders.h>
+#include <DragonBonesHeaders.h>
 
 #include <SFML/Graphics/Texture.hpp>
 
