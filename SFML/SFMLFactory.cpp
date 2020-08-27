@@ -48,16 +48,10 @@ SFMLFactory::~SFMLFactory()
 	}
 }
 
-DragonBonesData* SFMLFactory::loadDragonBonesData(const std::string& filePath, const std::string& name, const float scale)
+DragonBonesData* SFMLFactory::loadDragonBonesData(const std::string& filePath,
+												  const std::string& name,
+												  const float scale)
 {
-	if (!name.empty())
-	{
-		const auto existedData = getDragonBonesData(name);
-
-		if (existedData)
-			return existedData;
-	}
-
 	sf::FileInputStream stream;
 	if (!stream.open(filePath))
 	{
@@ -72,10 +66,24 @@ DragonBonesData* SFMLFactory::loadDragonBonesData(const std::string& filePath, c
 	if (data.empty())
 		return nullptr;
 
-	return parseDragonBonesData(data.c_str(), name, scale);
+	return loadDragonBonesData(data.c_str(), name, scale);
 }
 
-TextureAtlasData* SFMLFactory::loadTextureAtlasData(const std::string& filePath, sf::Texture* atlasTexture, const std::string& name, float scale)
+DragonBonesData *SFMLFactory::loadDragonBonesData(char *data, const std::string &name, const float scale)
+{
+	if (!name.empty())
+	{
+		DragonBonesData* existedData = getDragonBonesData(name);
+		if (existedData)
+			return existedData;
+	}
+	return parseDragonBonesData(data, name, scale);
+}
+
+TextureAtlasData* SFMLFactory::loadTextureAtlasData(const std::string& filePath,
+													sf::Texture* atlasTexture,
+													const std::string& name,
+													float scale)
 {
 	sf::FileInputStream stream;
 	if (!stream.open(filePath))
@@ -90,7 +98,15 @@ TextureAtlasData* SFMLFactory::loadTextureAtlasData(const std::string& filePath,
 	delete[] chars;
 	if (data.empty())
 		return nullptr;
-	return static_cast<SFMLTextureAtlasData*>(BaseFactory::parseTextureAtlasData(data.c_str(), atlasTexture, name, scale));
+	return loadTextureAtlasData(data.c_str(), atlasTexture, name, scale);
+}
+
+TextureAtlasData *SFMLFactory::loadTextureAtlasData(char *data,
+													sf::Texture* atlasTexture,
+													const std::string &name,
+													float scale)
+{
+	return static_cast<SFMLTextureAtlasData*>(BaseFactory::parseTextureAtlasData(data, atlasTexture, name, scale));
 }
 
 SFMLArmatureProxy* SFMLFactory::buildArmatureDisplay(const std::string& armatureName, const std::string& dragonBonesName, const std::string& skinName, const std::string& textureAtlasName) const

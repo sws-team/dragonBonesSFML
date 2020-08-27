@@ -32,10 +32,31 @@ public:
 	~SFMLFactory();
 
 public:
-	DragonBonesData* loadDragonBonesData(const std::string& filePath, const std::string& name = "", const float scale = 1.f);
-	TextureAtlasData* loadTextureAtlasData(const std::string& filePath, sf::Texture* atlasTexture, const std::string& name = "", float scale = 1.0f);
-	SFMLArmatureProxy* buildArmatureDisplay(const std::string& armatureName, const std::string& dragonBonesName = "", const std::string& skinName = "", const std::string& textureAtlasName = "") const;
-	sf::Texture* getTextureDisplay(const std::string& textureName, const std::string& dragonBonesName = "") const;
+	DragonBonesData* loadDragonBonesData(const std::string& filePath,
+										 const std::string& name = std::string(),
+										 const float scale = 1.f);
+
+	DragonBonesData* loadDragonBonesData(char* data,
+										 const std::string& name = std::string(),
+										 const float scale = 1.f);
+
+	TextureAtlasData* loadTextureAtlasData(const std::string& filePath,
+										   sf::Texture* atlasTexture,
+										   const std::string& name = std::string(),
+										   float scale = 1.0f);
+
+	TextureAtlasData* loadTextureAtlasData(char* data,
+										   sf::Texture *atlasTexture,
+										   const std::string& name = std::string(),
+										   float scale = 1.0f);
+
+	SFMLArmatureProxy* buildArmatureDisplay(const std::string& armatureName,
+											const std::string& dragonBonesName = std::string(),
+											const std::string& skinName = std::string(),
+											const std::string& textureAtlasName = std::string()) const;
+
+	sf::Texture* getTextureDisplay(const std::string& textureName,
+								   const std::string& dragonBonesName = std::string()) const;
 
 	void addSoundEventListener(const std::function<void(EventObject*)>& listener)
 	{
