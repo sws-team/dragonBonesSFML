@@ -1,0 +1,41 @@
+set(DRAGON_BONES_DIR ${CMAKE_CURRENT_LIST_DIR})
+include_directories(${DRAGON_BONES_DIR})
+set(DRAGON_BONES_SOURCES
+    ${DRAGON_BONES_DIR}/animation/Animation.cpp
+    ${DRAGON_BONES_DIR}/animation/AnimationState.cpp
+    ${DRAGON_BONES_DIR}/animation/BaseTimelineState.cpp
+    ${DRAGON_BONES_DIR}/animation/TimelineState.cpp
+    ${DRAGON_BONES_DIR}/animation/WorldClock.cpp
+    ${DRAGON_BONES_DIR}/armature/Armature.cpp
+    ${DRAGON_BONES_DIR}/armature/Bone.cpp
+    ${DRAGON_BONES_DIR}/armature/Constraint.cpp
+    ${DRAGON_BONES_DIR}/armature/DeformVertices.cpp
+    ${DRAGON_BONES_DIR}/armature/Slot.cpp
+    ${DRAGON_BONES_DIR}/armature/TransformObject.cpp
+    ${DRAGON_BONES_DIR}/core/BaseObject.cpp
+    ${DRAGON_BONES_DIR}/core/DragonBones.cpp
+    ${DRAGON_BONES_DIR}/event/EventObject.cpp
+    ${DRAGON_BONES_DIR}/factory/BaseFactory.cpp
+    ${DRAGON_BONES_DIR}/geom/Point.cpp
+    ${DRAGON_BONES_DIR}/geom/Transform.cpp
+    ${DRAGON_BONES_DIR}/model/AnimationConfig.cpp
+    ${DRAGON_BONES_DIR}/model/AnimationData.cpp
+    ${DRAGON_BONES_DIR}/model/ArmatureData.cpp
+    ${DRAGON_BONES_DIR}/model/BoundingBoxData.cpp
+    ${DRAGON_BONES_DIR}/model/CanvasData.cpp
+    ${DRAGON_BONES_DIR}/model/ConstraintData.cpp
+    ${DRAGON_BONES_DIR}/model/DisplayData.cpp
+    ${DRAGON_BONES_DIR}/model/DragonBonesData.cpp
+    ${DRAGON_BONES_DIR}/model/SkinData.cpp
+    ${DRAGON_BONES_DIR}/model/TextureAtlasData.cpp
+    ${DRAGON_BONES_DIR}/model/UserData.cpp
+    ${DRAGON_BONES_DIR}/parser/BinaryDataParser.cpp
+    ${DRAGON_BONES_DIR}/parser/DataParser.cpp
+    ${DRAGON_BONES_DIR}/parser/JSONDataParser.cpp
+
+    ${DRAGON_BONES_DIR}/SFML/SFMLArmatureDisplay.cpp
+    ${DRAGON_BONES_DIR}/SFML/SFMLArmatureProxy.cpp
+    ${DRAGON_BONES_DIR}/SFML/SFMLFactory.cpp
+    ${DRAGON_BONES_DIR}/SFML/SFMLSlot.cpp
+    ${DRAGON_BONES_DIR}/SFML/SFMLTextureAtlasData.cpp
+    )
